@@ -1,6 +1,6 @@
-### Installing
+# Installing
 
-# Disable SSHD motd
+## Disable SSHD motd
 
 Edit `/etc/ssh/sshd_config` and modify the following lines:
 ```conf
@@ -8,7 +8,7 @@ PrintMotd no
 PrintLastLog no
 ```
 
-# Disable PAM motd
+## Disable PAM motd
 
 Edit `/etc/pam.d/login` and comment out the following line:
 ```conf
@@ -20,12 +20,12 @@ On gentoo instead edit `/etc/pam.d/system-login` and comment out the following l
 #session        optional    pam_motd.so motd=/etc/motd
 ```
 
-# Install the script somewhere (optional)
+## Install the script somewhere (optional)
 ```bash
 cp motd /path/to/motd
 ```
 
-# Modify your login profile to run the script
+## Modify your login profile to run the script
 
 Edit `/etc/profile` and add the following line to the bottom of the file:
 ```bash
@@ -35,5 +35,5 @@ Edit `/etc/profile` and add the following line to the bottom of the file:
 zsh or other shell users should edit their corresponding profiles.
 E.g. zsh uses `/etc/zsh/zprofile`
 
-# Hope it works!
+## Hope it works!
 
