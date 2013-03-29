@@ -27,8 +27,7 @@ cp motd /path/to/motd
 
 # Modify your login profile to run the script
 
-Edit `/etc/profile`
-Add the following line to the bottom of the file:
+Edit `/etc/profile` and add the following line to the bottom of the file:
 ```bash
 /path/to/motd
 ```
