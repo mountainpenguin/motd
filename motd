@@ -50,8 +50,8 @@ stdout,stderr = subprocess.Popen(
     shlex.split("free -m"),
     stdout=subprocess.PIPE
 ).communicate()
-memline = stdout.split("\n")[1].split()
-swapline = stdout.split("\n")[3].split()
+memline = stdout.decode("utf8").split("\n")[1].split()
+swapline = stdout.decode("utf8").split("\n")[3].split()
 totalmemory = mb2human(memline[1]) 
 info = "{cpu_count} {cpu_type} Processors, {totalmemory} RAM".format(**locals()).center(78)
 info = list(info)
@@ -74,7 +74,7 @@ stdout,stderr = subprocess.Popen(
     stdout=subprocess.PIPE
 ).communicate()
 disklines = []
-for line in stdout.split("\n")[1:]:
+for line in stdout.decode("utf8").split("\n")[1:]:
     if line:
         fs, size, used, avail, perc, mount = line.split()
         if "/home" in mount:
@@ -128,7 +128,7 @@ stdout,stderr = subprocess.Popen(
     stdout=subprocess.PIPE
 ).communicate()
 try:
-    parsed = stdout.split("\n")
+    parsed = stdout.decode("utf8").split("\n")
     iface = parsed[1].split()[0]
     month, year, rx1, rx2, null2, tx1, tx2, null3, tot1, tot2, null4, avg1, avg2 = parsed[-4].split() 
     rx = "{0} {1} {2}".format("rx".ljust(4), rx1.rjust(9), rx2.ljust(6)).center(80)
