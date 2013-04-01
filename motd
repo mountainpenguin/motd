@@ -92,7 +92,7 @@ disklines = "\n".join(["[1;37;40m{0}[0m".format(x) for x in disklines])
 # fifth line: mem usage
 null, total, used, free, shared, buffers, cached = memline
 humanused = str(int(used) - int(buffers) - int(cached))
-perc = int(float(humanused)/float(total))
+perc = int(float(humanused)*100/float(total))
 meminfo = "{used} / {total} [{perc}%]".format(
     used = "{0}M".format(humanused).rjust(6),
     total = "{0}M".format(total).ljust(6),
@@ -105,7 +105,7 @@ memline = "{string} {meminfo}".format(
 
 # sixth line: swap usage
 null, total, used, free = swapline
-perc = int(float(used)/float(total))
+perc = int(float(used)*100/float(total))
 swapinfo = "{used} / {total} [{perc}%]".format(
     used = "{0}M".format(used).rjust(6),
     total = "{0}M".format(total).ljust(6),
